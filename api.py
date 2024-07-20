@@ -4,10 +4,9 @@ from web_scraper import get_menu
 
 app = Flask(__name__)
 
-@app.route('/date', methods=['GET'])
-def get_date():
-    result = subprocess.check_output(['date']).decode('utf-8')
-    return jsonify({'date': result.strip()})
+@app.route('/', methods=['GET'])
+def get_home():
+    return "This is the TAMU Dining Hall API!"
 
 @app.route('/test', methods=['GET'])
 def get_test():
