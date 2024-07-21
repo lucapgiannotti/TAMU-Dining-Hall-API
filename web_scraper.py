@@ -35,11 +35,11 @@ def web_scraper(button_id):
             menu_items.append(item.text)
     return menu_items
 
-def get_breakfast_menu():
+def breakfast_menu():
     return web_scraper("__BVID__217___BV_tab_button__")
 
-def get_lunch_menu():
+def lunch_menu():
     return web_scraper("__BVID__222___BV_tab_button__")
 
-def get_dinner_menu():
+def dinner_menu():
     return web_scraper("__BVID__227___BV_tab_button__")
