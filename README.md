@@ -43,9 +43,9 @@ To run this API locally using Flask, follow these steps:
 ### Endpoints
 | Method | Endpoint                                 | Description                                      |
 |--------|------------------------------------------|--------------------------------------------------|
-| GET    | /api/menus/breakfast_menu                | Retrieve breakfast menu                          |
-| GET    | /api/menus/lunch_menu                    | Retrieve lunch menu                              |
-| GET    | /api/menus/dinner_menu                   | Retrieve dinner menu                             |
+| GET    | /breakfast_menu                | Retrieve breakfast menu                          |
+| GET    | /lunch_menu                    | Retrieve lunch menu                              |
+| GET    | /dinner_menu                   | Retrieve dinner menu                             |
 | GET    | /api/menus/:diningHall/breakfast         | Retrieve breakfast menu for specific dining hall **(WIP)** |
 | GET    | /api/menus/:diningHall/lunch             | Retrieve lunch menu for specific dining hall **(WIP)**     | 
 | GET    | /api/menus/:diningHall/dinner            | Retrieve dinner menu for specific dining hall **(WIP)**    | 
@@ -53,7 +53,7 @@ To run this API locally using Flask, follow these steps:
 ### Example Requests
 - Retrieve breakfast menu
   ```bash
-  curl -X GET http://localhost:5000/api/menus/breakfast```
+  curl -X GET http://api.lucagiannotti.com/breakfast_menu```
 
 ## Contributions
 Contributions are welcome! Please follow these steps to contribute:
