@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 def get_menu():
-    url = 'https://dineoncampus.com/tamu/whats-on-the-menu' 
+    url = 'https://dineoncampus.com/tamu/whats-on-the-menu/' 
     driver = webdriver.Chrome() 
 
     driver.get(url)
