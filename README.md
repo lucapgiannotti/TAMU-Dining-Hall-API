@@ -41,14 +41,14 @@ To run this API locally using Flask, follow these steps:
 
 ## Usage
 ### Endpoints
-| Method | Endpoint                                 | Description                                  |
-|--------|------------------------------------------|----------------------------------------------|
-| GET    | /api/menus/breakfast_menu                | Retrieve breakfast menu                      |
-| GET    | /api/menus/lunch_menu                    | Retrieve lunch menu                          |
-| GET    | /api/menus/dinner_menu                   | Retrieve dinner menu                         |
-| GET    | /api/menus/:diningHall/breakfast         | Retrieve breakfast menu for specific dining hall | **(WIP)**
-| GET    | /api/menus/:diningHall/lunch             | Retrieve lunch menu for specific dining hall     | **(WIP)**
-| GET    | /api/menus/:diningHall/dinner            | Retrieve dinner menu for specific dining hall    | **(WIP)**
+| Method | Endpoint                                 | Description                                      |
+|--------|------------------------------------------|--------------------------------------------------|
+| GET    | /api/menus/breakfast_menu                | Retrieve breakfast menu                          |
+| GET    | /api/menus/lunch_menu                    | Retrieve lunch menu                              |
+| GET    | /api/menus/dinner_menu                   | Retrieve dinner menu                             |
+| GET    | /api/menus/:diningHall/breakfast         | Retrieve breakfast menu for specific dining hall **(WIP)** |
+| GET    | /api/menus/:diningHall/lunch             | Retrieve lunch menu for specific dining hall **(WIP)**     | 
+| GET    | /api/menus/:diningHall/dinner            | Retrieve dinner menu for specific dining hall **(WIP)**    | 
 
 ### Example Requests
 - Retrieve breakfast menu
