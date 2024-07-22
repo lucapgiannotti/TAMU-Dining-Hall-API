@@ -19,7 +19,7 @@ The TAMU Dining Halls Menu API allows users to retrieve the daily menu for vario
 
 ## Features
 - Retrieve daily menus for breakfast, lunch, and dinner.
-- Filter menus by specific dining halls. **(WIP)**
+- Filter menus by specific dining halls. **(WIP; you can currently only access the Commons Dining Hall Menu)**
 - Easy-to-use RESTful API endpoints.
 
 ## Installation
@@ -53,9 +53,9 @@ To run this API locally using Flask, follow these steps:
 ### Example Requests
 - Retrieve breakfast menu
   ```bash
-  curl -X GET http://api.lucagiannotti.com:8000/breakfast_menu```
+  curl -X GET http://server.lucagiannotti.com:8000/breakfast_menu```
 
-## Contributions
+## Contributing
 Contributions are welcome! Please follow these steps to contribute:
 1. Fork the repository.
 2. Create a new branch: git checkout -b feature/your-feature-name.

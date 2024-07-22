@@ -1,17 +1,11 @@
 from flask import Flask, jsonify
-import subprocess
-from web_scraper import breakfast_menu, lunch_menu, dinner_menu
+from store_menu import breakfast_menu, lunch_menu, dinner_menu
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def get_home():
     return "This is the TAMU Dining Hall API!"
-
-@app.route('/test', methods=['GET'])
-def get_test():
-    result = "hello world!"
-    return jsonify({'test': result.strip()})
 
 @app.route('/breakfast_menu', methods=['GET'])
 def get_breakfast_menu():
