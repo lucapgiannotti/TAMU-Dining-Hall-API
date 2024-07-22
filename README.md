@@ -27,8 +27,8 @@ To run this API locally using Flask, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/TAMU-Dining-Halls-Menu-API.git
-   cd TAMU-Dining-Halls-Menu-API
+   git clone https://github.com/Squidnugget77/TAMU-Dining-Hall-API.git
+   cd TAMU-Dining-Hall-API
    ```
 2. **Create a virtual environment**
    ```bash
