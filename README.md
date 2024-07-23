@@ -1,7 +1,5 @@
 # TAMU Dining Halls Menu API
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 This API provides the food menu for Texas A&M University dining halls for breakfast, lunch, and dinner. It's designed to help students and staff easily access daily meal options.
 
 ## Table of Contents
