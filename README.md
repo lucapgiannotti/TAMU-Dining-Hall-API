@@ -68,6 +68,6 @@ Contributions are welcome! Please follow these steps to contribute:
 5. Submit a pull request.
 
 ## Donate
-<a href="https://www.buymeacoffee.com/hWngk6y"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=xeroKun&button_colour=ed966d&font_colour=FFFFFF&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/lucagiannotti"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=xeroKun&button_colour=ed966d&font_colour=FFFFFF&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 Each donation is greatly appreciated, but not expected. However, if you enjoy this API, each donation goes towards hosting this service that is publically available. Thank you!
