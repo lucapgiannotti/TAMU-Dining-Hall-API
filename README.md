@@ -13,6 +13,7 @@ This API provides the food menu for Texas A&M University dining halls for breakf
   - [Example Requests](#example-requests)
 - [Contributing](#contributing)
 - [License](#license)
+- [Donate](#donate)
 
 ## Introduction
 The TAMU Dining Halls Menu API allows users to retrieve the daily menu for various dining halls at Texas A&M University. It supports querying for breakfast, lunch, and dinner menus.
@@ -35,9 +36,12 @@ To run this API locally using Flask, follow these steps:
    python3 -m venv venv
    source venv/bin/activate   # On Windows use `venv\Scripts\activate`
    ```
-3. **Install Depedencies**
+3. **Install depedencies**
    ```bash
    pip install -r requirements.txt```
+
+3. **Make changes to run locally**
+   If using Windows, comment lines 13-16 in `web_scraper.py`.
 
 ## Usage
 ### Endpoints
@@ -62,3 +66,8 @@ Contributions are welcome! Please follow these steps to contribute:
 3. Make your changes and commit them: git commit -m 'Add some feature'.
 4. Push to the branch: git push origin feature/your-feature-name.
 5. Submit a pull request.
+
+## Donate
+<a href="https://www.buymeacoffee.com/hWngk6y"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=xeroKun&button_colour=ed966d&font_colour=FFFFFF&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
+
+Each donation is greatly appreciated, but not expected. However, if you enjoy this API, each donation goes towards hosting this service that is publically available. Thank you!

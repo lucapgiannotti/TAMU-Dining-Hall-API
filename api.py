@@ -10,17 +10,17 @@ def get_home():
 @app.route('/breakfast_menu', methods=['GET'])
 def get_breakfast_menu():
     result = breakfast_menu()
-    return jsonify({'menu_items': result})
+    return jsonify({'breakfast_menu_items': result})
 
 @app.route('/lunch_menu', methods=['GET'])
 def get_lunch_menu():
     result = lunch_menu()
-    return jsonify({'menu_items': result})
+    return jsonify({'lunch_menu_items': result})
 
 @app.route('/dinner_menu', methods=['GET'])
 def get_dinner_menu():
     result = dinner_menu()
-    return jsonify({'menu_items': result})
+    return jsonify({'dinner_menu_items': result})
 
 if __name__ == '__main__':
     app.run()
