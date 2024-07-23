@@ -10,10 +10,10 @@ def web_scraper(button_id):
     url = 'https://dineoncampus.com/tamu/whats-on-the-menu/'
     
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("window-size=1920x1080")
+    # chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("window-size=1920x1080")
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
@@ -36,12 +36,3 @@ def web_scraper(button_id):
         for item in items:
             menu_items.append(item.text)
     return menu_items
-
-def breakfast_menu():
-    return web_scraper("__BVID__217___BV_tab_button__")
-
-def lunch_menu():
-    return web_scraper("__BVID__222___BV_tab_button__")
-
-def dinner_menu():
-    return web_scraper("__BVID__227___BV_tab_button__")
