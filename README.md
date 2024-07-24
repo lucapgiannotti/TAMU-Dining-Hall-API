@@ -45,17 +45,18 @@ To run this API locally using Flask, follow these steps:
 ### Endpoints
 | Method | Endpoint                                 | Description                                      |
 |--------|------------------------------------------|--------------------------------------------------|
-| GET    | /breakfast_menu                | Retrieve breakfast menu                          |
-| GET    | /lunch_menu                    | Retrieve lunch menu                              |
-| GET    | /dinner_menu                   | Retrieve dinner menu                             |
-| GET    | /api/menus/:diningHall/breakfast         | Retrieve breakfast menu for specific dining hall **(WIP)** |
-| GET    | /api/menus/:diningHall/lunch             | Retrieve lunch menu for specific dining hall **(WIP)**     | 
-| GET    | /api/menus/:diningHall/dinner            | Retrieve dinner menu for specific dining hall **(WIP)**    | 
+| GET    | /api/menus/:diningHall/breakfast         | Retrieve breakfast menu for specific dining hall  |
+| GET    | /api/menus/:diningHall/lunch             | Retrieve lunch menu for specific dining hall | 
+| GET    | /api/menus/:diningHall/dinner            | Retrieve dinner menu for specific dining hall   | 
 
 ### Example Requests
-- Retrieve breakfast menu
+- Retrieve The Commons Dining Hall breakfast menu
   ```bash
-  curl -X GET http://server.lucagiannotti.com:8000/breakfast_menu```
+  curl -X GET http://api.lucagiannotti.com:8000/commons/breakfast_menu```
+
+- Retrieve Sbisa Dining Hall lunch menu
+```bash
+   curl -X GET http://api.lucagiannotti.com/sbisa/lunch_menu```
 
 ## Contributing
 Contributions are welcome! Please follow these steps to contribute:
