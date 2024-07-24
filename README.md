@@ -46,9 +46,9 @@ To run this API locally using Flask, follow these steps:
 [ Currently ONLY The Commons Dining Hall has menus available. Sbisa and Duncan will open during the fall semester (Aug 2024) ]
 | Method | Endpoint                                 | Description                                      |
 |--------|------------------------------------------|--------------------------------------------------|
-| GET    | /api/menus/:diningHall/breakfast         | Retrieve breakfast menu for specific dining hall  |
-| GET    | /api/menus/:diningHall/lunch             | Retrieve lunch menu for specific dining hall | 
-| GET    | /api/menus/:diningHall/dinner            | Retrieve dinner menu for specific dining hall   | 
+| GET    | /:diningHall/breakfast         | Retrieve breakfast menu for a specific dining hall  |
+| GET    | /:diningHall/lunch             | Retrieve lunch menu for a specific dining hall | 
+| GET    | /:diningHall/dinner            | Retrieve dinner menu for a specific dining hall   | 
 
 ### Example Requests
 - Retrieve The Commons Dining Hall breakfast menu
@@ -57,7 +57,8 @@ To run this API locally using Flask, follow these steps:
 
 - Retrieve Sbisa Dining Hall lunch menu
 ```bash
-   curl -X GET http://api.lucagiannotti.com/sbisa/lunch_menu```
+  curl -X GET http://api.lucagiannotti.com/sbisa/lunch_menu
+```
 
 ## Contributing
 Contributions are welcome! Please follow these steps to contribute:
