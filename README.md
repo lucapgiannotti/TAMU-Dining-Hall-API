@@ -43,6 +43,7 @@ To run this API locally using Flask, follow these steps:
 
 ## Usage
 ### Endpoints
+[ Currently ONLY The Commons Dining Hall has menus available. Sbisa and Duncan will open during the fall semester (Aug 2024) ]
 | Method | Endpoint                                 | Description                                      |
 |--------|------------------------------------------|--------------------------------------------------|
 | GET    | /api/menus/:diningHall/breakfast         | Retrieve breakfast menu for specific dining hall  |
