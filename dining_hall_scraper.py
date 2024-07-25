@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import os
 
 
 
@@ -18,7 +19,13 @@ def dining_hall_web_scraper(dining_hall, meal):
     # chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("window-size=1920x1080")
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    driver_path = ChromeDriverManager().install()
+    if driver_path:
+        driver_name = os.path.basename(driver_path)
+        if driver_name != "chromedriver.exe":
+            driver_path = os.path.join(os.path.dirname(driver_path), "chromedriver.exe")
+            
+    driver = webdriver.Chrome(service=ChromeService(driver_path), options=chrome_options)
 
     driver.get(url)
     
