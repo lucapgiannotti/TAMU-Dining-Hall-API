@@ -53,7 +53,7 @@ To run this API locally using Flask, follow these steps:
 ### Example Requests
 - Retrieve The Commons Dining Hall breakfast menu
   ```bash
-  curl -X GET http://api.lucagiannotti.com:8000/commons/breakfast_menu```
+  curl -X GET http://api.lucagiannotti.com/commons/breakfast_menu```
 
 - Retrieve Sbisa Dining Hall lunch menu
 ```bash

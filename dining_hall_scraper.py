@@ -5,19 +5,21 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import os
+import os, time
 
 
 
 
 def dining_hall_web_scraper(dining_hall, meal):
+    start_time = time.time()
+
     url = 'https://dineoncampus.com/tamu/whats-on-the-menu/'
     
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")
-    # chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_argument("--disable-dev-shm-usage")
-    # chrome_options.add_argument("window-size=1920x1080")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("window-size=1920x1080")
 
     driver_path = ChromeDriverManager().install()
     if driver_path:
@@ -43,30 +45,45 @@ def dining_hall_web_scraper(dining_hall, meal):
         )
         button = driver.find_element(By.XPATH, xpath)
         button.click()
-    
-    if dining_hall == "commons":
-        click_dining_hall_button("The Commons Dining Hall (South Campus)")
-    
-    elif dining_hall == "sbisa":
-        click_dining_hall_button("Sbisa Dining Hall (North Campus)")
-    
-    elif dining_hall == "duncan":
-        click_dining_hall_button("Duncan Dining Hall (South Campus/Quad)")
+    try:
+        if dining_hall == "commons":
+            click_dining_hall_button("The Commons Dining Hall (South Campus)")
         
-    wait = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.LINK_TEXT, meal))  
-    )
+        elif dining_hall == "sbisa":
+            click_dining_hall_button("Sbisa Dining Hall (North Campus)")
+        
+        elif dining_hall == "duncan":
+            click_dining_hall_button("Duncan Dining Hall (South Campus/Quad)")
+    except:
+        return "Menu not available; error finding dining hall", 404
     
-    button = driver.find_element(By.LINK_TEXT, meal)
-    button.click()
-    
-    wait = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CLASS_NAME, "menu-items"))
-    )
+    try:    
+        wait = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, meal))  
+        )
+        
+        button = driver.find_element(By.LINK_TEXT, meal)
+        button.click()
+        
+        try:
+            WebDriverWait(driver, 2).until( # Redneck engineering solution to ensure the page loads before it scrapes
+            EC.staleness_of(button) #   Ideally there should be a better way, but this will do for now
+            )
+        except:
+            pass
+    except:
+        return "Menu not available; error finding meal type (breakfast/lunch/dinner)", 404
+        
+    try:
+        wait = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "menu-items"))
+        )
+    except:
+        return "Menu not available; error finding menu", 404
     menu = driver.find_elements(By.CLASS_NAME, 'menu-items') 
-    menu_items = []
-    for element in menu:
-        items = element.find_elements(By.TAG_NAME, 'strong')
-        for item in items:
-            menu_items.append(item.text)
-    return menu_items
+    menu_items = list(map(lambda element: element.find_elements(By.TAG_NAME, 'strong'), menu))
+    menu_items = [item.text for sublist in menu_items for item in sublist]
+    
+    execution_time = round(time.time() - start_time, 4)
+            
+    return menu_items, f"{execution_time} seconds to scrape"

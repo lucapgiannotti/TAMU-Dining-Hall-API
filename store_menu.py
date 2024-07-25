@@ -28,13 +28,13 @@ def scrape_and_store():
     menu_data["commons"]["lunch"] = dining_hall_web_scraper("commons", "Lunch")
     menu_data["commons"]["dinner"] = dining_hall_web_scraper("commons", "Dinner")
     
-    # menu_data["sbisa"]["breakfast"] = dining_hall_web_scraper("sbisa", "")
+    menu_data["sbisa"]["breakfast"] = dining_hall_web_scraper("sbisa", "")
     menu_data["sbisa"]["lunch"] = dining_hall_web_scraper("sbisa", "Lunch")
-    # menu_data["sbisa"]["dinner"] = dining_hall_web_scraper("sbisa", "")
+    menu_data["sbisa"]["dinner"] = dining_hall_web_scraper("sbisa", "")
     
-    # menu_data["duncan"]["breakfast"] = dining_hall_web_scraper("duncan", "")
-    # menu_data["duncan"]["lunch"] = dining_hall_web_scraper("duncan", "")
-    # menu_data["duncan"]["dinner"] = dining_hall_web_scraper("duncan", "")
+    menu_data["duncan"]["breakfast"] = dining_hall_web_scraper("duncan", "")
+    menu_data["duncan"]["lunch"] = dining_hall_web_scraper("duncan", "")
+    menu_data["duncan"]["dinner"] = dining_hall_web_scraper("duncan", "")
 
     scheduler.enter(1800, 1, scrape_and_store) # 1800 seconds = 30 minutes
 
