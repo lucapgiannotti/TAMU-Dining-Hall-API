@@ -16,10 +16,10 @@ def dining_hall_web_scraper(dining_hall, meal):
     url = 'https://dineoncampus.com/tamu/whats-on-the-menu/'
     
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("window-size=1920x1080")
+    # chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("window-size=1920x1080")
 
     driver_path = ChromeDriverManager().install()
     if driver_path:
@@ -87,3 +87,7 @@ def dining_hall_web_scraper(dining_hall, meal):
     execution_time = round(time.time() - start_time, 4)
             
     return menu_items, f"{execution_time} seconds to scrape"
+
+
+current_os = os.name
+print(current_os)

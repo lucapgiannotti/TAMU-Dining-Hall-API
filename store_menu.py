@@ -24,6 +24,7 @@ menu_data = {
 scheduler = sched.scheduler(time.time, time.sleep)
 
 def scrape_and_store():
+    
     menu_data["commons"]["breakfast"] = dining_hall_web_scraper("commons", "Breakfast")
     menu_data["commons"]["lunch"] = dining_hall_web_scraper("commons", "Lunch")
     menu_data["commons"]["dinner"] = dining_hall_web_scraper("commons", "Dinner")
