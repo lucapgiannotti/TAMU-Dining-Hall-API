@@ -18,7 +18,7 @@ The TAMU Dining Halls Menu API allows users to retrieve the daily menu for vario
 
 ## Features
 - Retrieve daily menus for breakfast, lunch, and dinner.
-- Filter menus by specific dining halls. **(WIP; you can currently only access the Commons Dining Hall Menu)**
+- Filter menus by specific dining halls.
 - Easy-to-use RESTful API endpoints.
 
 ## Installation
@@ -44,7 +44,6 @@ To run this API locally using Flask, follow these steps:
 
 ## Usage
 ### Endpoints
-[ Currently ONLY The Commons Dining Hall has menus available. Sbisa and Duncan will open during the fall semester (Aug 2024) ]
 | Method | Endpoint                                 | Description                                      |
 |--------|------------------------------------------|--------------------------------------------------|
 | GET    | /:diningHall/breakfast         | Retrieve breakfast menu for a specific dining hall  |
