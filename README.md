@@ -39,9 +39,6 @@ To run this API locally using Flask, follow these steps:
    pip install -r requirements.txt
 ```
 
-3. **Make changes to run locally**
-   If using Windows, comment lines 13-16 in `web_scraper.py`.
-
 ## Usage
 ### Endpoints
 | Method | Endpoint                                 | Description                                      |
