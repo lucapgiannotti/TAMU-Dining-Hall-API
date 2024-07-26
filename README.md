@@ -25,18 +25,19 @@ The TAMU Dining Halls Menu API allows users to retrieve the daily menu for vario
 To run this API locally using Flask, follow these steps:
 
 1. **Clone the repository:**
-   ```bash
+```bash
    git clone https://github.com/Squidnugget77/TAMU-Dining-Hall-API.git
    cd TAMU-Dining-Hall-API
-   ```
+```
 2. **Create a virtual environment**
-   ```bash
+```bash
    python3 -m venv venv
    source venv/bin/activate   # On Windows use `venv\Scripts\activate`
-   ```
+```
 3. **Install depedencies**
-   ```bash
-   pip install -r requirements.txt```
+```bash
+   pip install -r requirements.txt
+```
 
 3. **Make changes to run locally**
    If using Windows, comment lines 13-16 in `web_scraper.py`.
@@ -52,12 +53,13 @@ To run this API locally using Flask, follow these steps:
 
 ### Example Requests
 - Retrieve The Commons Dining Hall breakfast menu
-  ```bash
-  curl -X GET http://api.lucagiannotti.com/commons/breakfast_menu```
+```bash
+  curl -X GET http://api.lucagiannotti.com/commons/breakfast
+```
 
 - Retrieve Sbisa Dining Hall lunch menu
 ```bash
-  curl -X GET http://api.lucagiannotti.com/sbisa/lunch_menu
+  curl -X GET http://api.lucagiannotti.com/sbisa/lunch
 ```
 
 ## Contributing

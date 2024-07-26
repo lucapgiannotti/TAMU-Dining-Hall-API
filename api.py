@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, abort
-from store_menu import breakfast_menu, lunch_menu, dinner_menu
+from scrape_and_store import breakfast_menu, lunch_menu, dinner_menu
 
 def dining_hall_exists(dining_hall):
     available_dining_halls = ['commons', 'sbisa', 'duncan']
@@ -12,7 +12,7 @@ def home():
     return "Welcome to the TAMU Dining Hall API!", 200
 
 
-@app.route('/<dining_hall>/breakfast_menu', methods=['GET'])
+@app.route('/<dining_hall>/breakfast', methods=['GET'])
 def get_hall_breakfast_menu(dining_hall):
     if not dining_hall_exists(dining_hall):
         return jsonify({'error': 'Dining hall not found'}), 404
@@ -22,7 +22,7 @@ def get_hall_breakfast_menu(dining_hall):
     except Exception as e:
         return jsonify({'error': 'Internal server error'}), 500
 
-@app.route('/<dining_hall>/lunch_menu', methods=['GET'])
+@app.route('/<dining_hall>/lunch', methods=['GET'])
 def get_hall_lunch_menu(dining_hall):
     if not dining_hall_exists(dining_hall):
         return jsonify({'error': 'Dining hall not found'}), 404
@@ -32,7 +32,7 @@ def get_hall_lunch_menu(dining_hall):
     except Exception as e:
         return jsonify({'error': 'Internal server error'}), 500
 
-@app.route('/<dining_hall>/dinner_menu', methods=['GET'])
+@app.route('/<dining_hall>/dinner', methods=['GET'])
 def get_hall_dinner_menu(dining_hall):
     if not dining_hall_exists(dining_hall):  
         return jsonify({'error': 'Dining hall not found'}), 404
