@@ -103,9 +103,6 @@ def switch_window_and_scrape(driver, dining_hall, meal):
     return menu_items, f"{execution_time} seconds to scrape"    
 
 
-
-
-
 def scrape_and_store():
     driver = initalize_driver()
     dining_halls = ["commons", "sbisa", "duncan"]
