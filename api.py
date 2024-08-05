@@ -18,7 +18,7 @@ def get_hall_breakfast_menu(dining_hall):
         return jsonify({'error': 'Dining hall not found'}), 404
     try:
         result = breakfast_menu(dining_hall)
-        return jsonify({'breakfast_menu_items': result}), 200
+        return jsonify({'menu_items': result}), 200
     except Exception as e:
         return jsonify({'error': 'Internal server error'}), 500
 
@@ -28,7 +28,7 @@ def get_hall_lunch_menu(dining_hall):
         return jsonify({'error': 'Dining hall not found'}), 404
     try:
         result = lunch_menu(dining_hall)
-        return jsonify({'lunch_menu_items': result}), 200
+        return jsonify({'menu_items': result}), 200
     except Exception as e:
         return jsonify({'error': 'Internal server error'}), 500
 
@@ -38,7 +38,7 @@ def get_hall_dinner_menu(dining_hall):
         return jsonify({'error': 'Dining hall not found'}), 404
     try:
         result = dinner_menu(dining_hall)
-        return jsonify({'dinner_menu_items': result}), 200
+        return jsonify({'menu_items': result}), 200
     except Exception as e:
         return jsonify({'error': 'Internal server error'}), 500
     
