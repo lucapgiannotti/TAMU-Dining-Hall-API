@@ -51,56 +51,83 @@ def initalize_driver():
     return driver
 
 def switch_window_and_scrape(driver, dining_hall, meal):
-    start_time = time.time()
-    
-    wait = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.ID, "menu-location-selector__BV_toggle_"))
-    )
-    menu_location_selector_button = driver.find_element(By.ID, "menu-location-selector__BV_toggle_")
-    menu_location_selector_button.click()
-    def click_dining_hall_button(dining_hall_name):
-        xpath = f"//button[contains(text(), '{dining_hall_name}')]"
-        wait = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, xpath))
-        )
-        button = driver.find_element(By.XPATH, xpath)
-        button.click()
-    try:
-        if dining_hall == "commons":
-            click_dining_hall_button("The Commons Dining Hall (South Campus)")
-        
-        elif dining_hall == "sbisa":
-            click_dining_hall_button("Sbisa Dining Hall (North Campus)")
-        
-        elif dining_hall == "duncan":
-            click_dining_hall_button("Duncan Dining Hall (South Campus/Quad)")
-    except:
-        return "Menu not available; error finding dining hall", 404
-    
-    try:    
-        wait = WebDriverWait(driver, 3).until(
-            EC.element_to_be_clickable((By.LINK_TEXT, meal))  
-        )
-        
-        button = driver.find_element(By.LINK_TEXT, meal)
-        button.click()
+	start_time = time.time()
+	wait = WebDriverWait(driver, 10).until(
+		EC.element_to_be_clickable((By.ID, "menu-location-selector__BV_toggle_"))
+	)
+	menu_location_selector_button = driver.find_element(By.ID, "menu-location-selector__BV_toggle_")
+	menu_location_selector_button.click()
 
-    except:
-        return "Menu not available; error finding meal type (breakfast/lunch/dinner)", 404
-        
-    try:
-        wait = WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "menu-items"))
-        )
-    except:
-        return "Menu not available; error finding menu", 404
-    menu = driver.find_elements(By.CLASS_NAME, 'menu-items') 
-    menu_items = list(map(lambda element: element.find_elements(By.TAG_NAME, 'strong'), menu))
-    menu_items = [item.text for sublist in menu_items for item in sublist]
-    
-    execution_time = round(time.time() - start_time, 4)
+	def click_dining_hall_button(dining_hall_name):
+		xpath = f"//button[contains(text(), '{dining_hall_name}')]"
+		wait = WebDriverWait(driver, 10).until(
+			EC.element_to_be_clickable((By.XPATH, xpath))
+		)
+		button = driver.find_element(By.XPATH, xpath)
+		button.click()
+
+	try:
+		if dining_hall == "commons":
+			click_dining_hall_button("The Commons Dining Hall (South Campus)")
+		
+		elif dining_hall == "sbisa":
+			click_dining_hall_button("Sbisa Dining Hall (North Campus)")
+		
+		elif dining_hall == "duncan":
+			click_dining_hall_button("Duncan Dining Hall (South Campus/Quad)")
+	except Exception as e:
+		print(f"Error finding dining hall: {e}")
+		return "Menu not available; error finding dining hall", 404
+
+	try:    
+		wait = WebDriverWait(driver, 3).until(
+			EC.element_to_be_clickable((By.LINK_TEXT, meal))  
+		)
+		
+		button = driver.find_element(By.LINK_TEXT, meal)
+		button.click()
             
-    return menu_items, f"{execution_time} seconds to scrape"    
+
+	except Exception as e:
+		print(f"Error finding meal type: {e}")
+		return "Menu not available; error finding meal type (breakfast/lunch/dinner)", 404
+		
+	try:
+		WebDriverWait(driver, 2).until( # Redneck engineering solution to ensure the page loads before it scrapes
+		EC.staleness_of(button) #   Ideally there should be a better way, but this will do for now
+			)
+	except:
+		pass
+
+	try:
+		wait = WebDriverWait(driver, 5).until(
+			EC.presence_of_element_located((By.CLASS_NAME, "menu-items"))
+		)
+	except Exception as e:
+		print(f"Error finding menu: {e}")
+		return "Menu not available; error finding menu", 404
+
+	menu = driver.find_elements(By.CLASS_NAME, 'menu-items')
+	if not menu:
+		print("No menu items found")
+	else:
+		print(f"Found {len(menu)} menu items")
+
+	menu_items = list(map(lambda element: element.find_elements(By.TAG_NAME, 'strong'), menu))
+	if not menu_items:
+		print("No strong tags found in menu items")
+	else:
+		print(f"Found {len(menu_items)} strong tags in menu items")
+
+	menu_items = [item.text for sublist in menu_items for item in sublist]
+	if not menu_items:
+		print("No text found in menu items")
+	else:
+		print(f"Extracted text from menu items: {menu_items}")
+
+	execution_time = round(time.time() - start_time, 4)
+			
+	return menu_items, f"{execution_time} seconds to scrape"
 
 
 def scrape_and_store():
